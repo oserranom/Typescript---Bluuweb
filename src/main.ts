@@ -33,24 +33,5 @@ function hello(name: string){
 console.log(hello('Oscar')); 
 
 
-//Ejercicio 1, classic counter
-//tipamos elementos del DOM de la siguiente manera "as HTMLElementType"
-
-const counter = document.querySelector("#counter") as HTMLSpanElement;
-const btnIncrement = document.querySelector("#btnIncrement") as HTMLButtonElement; 
-const btnReset = document.querySelector("#reset") as HTMLButtonElement;
-
-let totalCount = 0;
-
-btnIncrement.addEventListener("click", ()=>{
-  totalCount++;
-  counter.textContent = totalCount.toString(); 
-});
-
-btnReset.addEventListener("click", ()=>{
-  totalCount = 0;
-  counter.textContent = totalCount.toString(); 
-}); 
-
 
 
