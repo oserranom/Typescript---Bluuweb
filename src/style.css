@@ -94,3 +94,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+#btnIncrement{
+  display: block;
+  margin: 50px;
+}
+
+#counter{
+  font-weight: 300;
+  margin: 10px;
+}
