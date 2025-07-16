@@ -1,24 +1,33 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+//Variables
+const age = 33;
+const name = 'Oscar';
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+//Objects e interfaces
+interface Persona {
+  name: string;
+  age: number;
+  lastName?: string; //con "?" damos la posibilidad de usar o no este atributo
+}
+
+const persona1: Persona = {
+  name,
+  age
+}
+
+console.log(persona1); 
+
+//En TS la inferencia es automática en declaraciones de variables primitivas
+//Siempre se puede forzar añadiendo detrás del nombre ": type"
+
+//En arrays de objetos y objetos complejos sí requerimos tipar datos, para tipar objetos tenemos las interface
+//el objeto persona1 es un objeto de tipo "Persona"
+
+//Functions
+
+function hello(name: string){
+  return `Hello ${name}`;
+}
+
+console.log(hello('Oscar')); 
