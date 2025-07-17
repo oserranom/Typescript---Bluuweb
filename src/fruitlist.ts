@@ -20,6 +20,21 @@ const fruitList: Fruit[] = [
 ];
 
 const ulFruitList = document.querySelector("#fruitlist") as HTMLUListElement;
+const formFruit = document.querySelector("#formFruit") as HTMLFormElement;
+const fruitInput = document.querySelector("#fruitInput") as HTMLInputElement;
+const colorInput = document.querySelector("#colorInput") as HTMLInputElement;
+
+formFruit.addEventListener("submit", (e) =>{
+    e.preventDefault();
+    const newFruit: Fruit = {
+        color: colorInput.value,
+        name: fruitInput.value 
+    } 
+
+    fruitList.push(newFruit);
+});
+
+
 
 fruitList.forEach((fruit) =>{
     const liFruit = document.createElement("li");
