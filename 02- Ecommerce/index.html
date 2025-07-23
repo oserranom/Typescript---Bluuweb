@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso TS Ecommerce</title>
+  </head>
+  <body>
+
+    <h1 class=" text-center my-3 text-3xl">Products</h1>
+
+    <main class="grid grid-cols-2 gap-3" id="product-list">
+
+      <template id="porduct-template">
+        <article class="border rounded-md">
+          <img src="" alt="" class="w-full h-[200px] object-cover">
+          <div class="p-3">
+            <h2 class="truncate">Name</h2>
+            <p>Price: <span> 10 €</span></p>
+            <button class="bg-blue-500 text-white rounded-md px-4 py-2">Add to cart</button>
+          </div>
+        </article>
+      </template>
+      
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
