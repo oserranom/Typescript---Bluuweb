@@ -32,12 +32,19 @@ formFruit.addEventListener("submit", (e) =>{
     } 
 
     fruitList.push(newFruit);
+    renderFruits(); 
 });
 
+const renderFruits = ()=>{
 
+    ulFruitList.textContent = "";
 
-fruitList.forEach((fruit) =>{
-    const liFruit = document.createElement("li");
-    liFruit.textContent = `${fruit.name} - ${fruit.color}`;
-    ulFruitList.appendChild(liFruit);
-}); 
+    fruitList.forEach((fruit) =>{
+        const liFruit = document.createElement("li");
+        liFruit.textContent = `${fruit.name} - ${fruit.color}`;
+        ulFruitList.appendChild(liFruit);
+    }); 
+}
+
+renderFruits(); 
+
