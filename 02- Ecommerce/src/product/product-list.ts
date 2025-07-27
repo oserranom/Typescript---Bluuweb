@@ -10,12 +10,12 @@ const getProducts = async (): Promise<Product[]> =>{
 
 // 2. Renderizar la lista de productos en el DOM
 
-const renderProductList = async () =>{
+export const renderProductList = async () =>{
     const products = await getProducts(); 
     const productList = document.querySelector("#product-list") as HTMLDivElement;
     const productTemplate = document.querySelector("#product-template") as HTMLTemplateElement;
 
-    products.forEach((product: Product)=>{
+    products.forEach((product)=>{
         const clone = createProductCard(product, productTemplate);
         productList.appendChild(clone); 
     });
@@ -23,6 +23,8 @@ const renderProductList = async () =>{
 
 
 // 2.1 Crear la tarjeta card con el template html
+//Sintáxis para templates, básicamente creamos un clon de template para cada iteración de product 
+
 const createProductCard = (product: Product, productTemplate: HTMLTemplateElement) =>{
    
     const { title, id, image, price} = product;
