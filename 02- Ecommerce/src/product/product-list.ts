@@ -15,14 +15,26 @@ const renderProductList = async () =>{
     const productList = document.querySelector("#product-list") as HTMLDivElement;
     const productTemplate = document.querySelector("#product-template") as HTMLTemplateElement;
 
-    products.forEach(({title, id, image, price})=>{
-        //Ojo a esta sintáxis para templates
-        const product = productTemplate.content.cloneNode(true) as HTMLDivElement;
-        product.querySelector("img")!.src = image;
-        product.querySelector("h2")!.textContent = title;
-        product.querySelector("span")!.textContent = `${price} €`;
-        product.querySelector("a")!.href = `product-detail.html?id=${id}`;
-        productList.appendChild(product);
+    products.forEach((product: Product)=>{
+        const clone = createProductCard(product, productTemplate);
+        productList.appendChild(clone); 
     });
 }
+
+
 // 2.1 Crear la tarjeta card con el template html
+const createProductCard = (product: Product, productTemplate: HTMLTemplateElement) =>{
+   
+    const { title, id, image, price} = product;
+
+    const clone = productTemplate.content.cloneNode(true) as HTMLDivElement;
+
+    clone.querySelector("img")!.src = image;
+    clone.querySelector("h2")!.textContent = title;
+    clone.querySelector("p span")!.textContent = `${price} €`;
+    clone.querySelector("button")!.addEventListener("click", ()=>{
+        console.log(`Product id: ${id}`);
+    });
+
+    return clone;
+}
