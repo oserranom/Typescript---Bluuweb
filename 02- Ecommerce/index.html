@@ -9,9 +9,9 @@
   <body>
 
     <header class="p-3">
-      <ul>
+      <ul id="cart-list">
 
-        <template> <!--Sintáxis de template para renderizado desde TS-->
+        <template id="cart-template"> <!--Sintáxis de template para renderizado desde TS-->
           <li class="flex justify-between p-3 border-b border-gray-400">
 
             <p class="truncate">Título producto</p>
@@ -20,7 +20,7 @@
               <span class="inline-block w-7 text-center">0</span>
               <button class="bg-red-500 rounded px-2  text-white cursor-pointer">-</button>
             </div>
-            <p class="text-right">25 €</p>
+            <p id="cart-total" class="text-right">25 €</p>
   
           </li>
         </template>
