@@ -8,12 +8,28 @@
   </head>
   <body>
 
+    <header class="p-3">
+      <ul>
+        <li class="flex justify-between p-3 border border-gray-400 rounded">
+
+          <p class="truncate">Título producto</p>
+          <div class="">
+            <button class="bg-blue-500 rounded px-2  text-white cursor-pointer">+</button>
+            <span class="inline-block w-7 text-center">0</span>
+            <button class="bg-red-500 rounded px-2  text-white cursor-pointer">-</button>
+          </div>
+          <p class="text-right">25 €</p>
+
+        </li>
+      </ul>
+    </header>
+
     <h1 class=" text-center my-3 text-3xl">Products</h1>
 
     <main class="grid grid-cols-2 gap-3 p-3" id="product-list">
 
       <template id="product-template">
-        <article class="border rounded-md">
+        <article class="border border-gray-400 rounded-md">
           <img src="" alt="" class="w-full h-[200px] object-cover">
           <div class="p-3">
             <h2 class="truncate">Name</h2>
