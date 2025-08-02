@@ -1,4 +1,5 @@
 import type { Product } from "../interfaces/product.interface";
+import { addToCart } from "../cart/cart";
 
 // 1. Capturar elementos desde la API 
 
@@ -35,7 +36,7 @@ const createProductCard = (product: Product, productTemplate: HTMLTemplateElemen
     clone.querySelector("h2")!.textContent = title;
     clone.querySelector("p span")!.textContent = `${price} €`;
     clone.querySelector("button")!.addEventListener("click", ()=>{
-        console.log(`Product id: ${id}`);
+        addToCart({ title, price, id }); 
     });
 
     return clone;
