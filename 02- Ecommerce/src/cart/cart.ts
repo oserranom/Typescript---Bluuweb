@@ -1,4 +1,5 @@
 import type { CartItem } from "../interfaces/cartItem.inteface";
+import { renderCartList } from "./cart-list";
 
 //1. Definir variable carrito CartItem[]
 export const cartArray: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]"); 
@@ -20,6 +21,7 @@ export const addToCart = ({title, id, price}: ItemAddedToCart) =>{
     }
     
     localStorage.setItem("cart", JSON.stringify(cartArray)); 
+    renderCartList(); 
 }
 
 
@@ -28,6 +30,7 @@ export const removeFromCart = (id: number) => {
     const itemIndex = cartArray.findIndex((cartItem) => cartItem.id === id);
     cartArray.splice(itemIndex, 1);
     localStorage.setItem("cart", JSON.stringify(cartArray)); 
+    renderCartList();
 }
 
 

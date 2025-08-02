@@ -6,6 +6,8 @@ const cartList = document.querySelector("#cart-list") as HTMLUListElement;
 const cartTemplate = document.querySelector("#cart-template") as HTMLTemplateElement; 
 
 export const renderCartList = async ()=>{
+    cartList.textContent = ""; 
+    
     cartArray.forEach((cartItem) => {
         const clone = createCartItem(cartItem, cartTemplate);
         cartList.appendChild(clone);
