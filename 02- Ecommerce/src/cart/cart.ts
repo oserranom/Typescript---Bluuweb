@@ -1,7 +1,7 @@
 import type { CartItem } from "../interfaces/cartItem.inteface";
 
 //1. Definir variable carrito CartItem[]
-const cartArray: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]"); 
+export const cartArray: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]"); 
 
 
 //2. Crear un método para agregar item al carrito
@@ -24,9 +24,12 @@ export const addToCart = ({title, id, price}: ItemAddedToCart) =>{
 
 
 //3. Crear un método para eliminar del carrito
+export const removeFromCart = (id: number) => {
+    const itemIndex = cartArray.findIndex((cartItem) => cartItem.id === id);
+    cartArray.splice(itemIndex, 1);
+    localStorage.setItem("cart", JSON.stringify(cartArray)); 
+}
 
 
 //4. Crear un método para obtener el total del carrito
-
-
-//5. Crear un método para vaciar carrito
+export const getTotal = cartArray.reduce((ac, item) => ac + item.price * item.quantity, 0); 

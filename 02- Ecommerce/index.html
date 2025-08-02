@@ -12,15 +12,15 @@
       <ul id="cart-list">
 
         <template id="cart-template"> <!--Sintáxis de template para renderizado desde TS-->
-          <li class="flex justify-between p-3 border-b border-gray-400">
+          <li class="md:grid grid-cols-3 p-3 border-b border-gray-400">
 
-            <p class="truncate">Título producto</p>
-            <div class="">
+            <p class="truncate" data-cart="title">Título producto</p>
+            <div class="ml-20">
               <button class="bg-blue-500 rounded px-2  text-white cursor-pointer">+</button>
-              <span class="inline-block w-7 text-center">0</span>
+              <span class="inline-block w-7 text-center" data-cart="quantity">0</span>
               <button class="bg-red-500 rounded px-2  text-white cursor-pointer">-</button>
             </div>
-            <p id="cart-total" class="text-right">25 €</p>
+            <p id="cart-total" class="text-right" data-cart="price">25 €</p>
   
           </li>
         </template>
