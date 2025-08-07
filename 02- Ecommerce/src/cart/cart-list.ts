@@ -1,5 +1,5 @@
 import type { CartItem } from "../interfaces/cartItem.inteface";
-import { cartArray } from "./cart";
+import { addToCart, cartArray, removeFromCart } from "./cart";
 //5. Crear un método para vaciar carrito
 
 const cartList = document.querySelector("#cart-list") as HTMLUListElement;
@@ -24,6 +24,13 @@ const createCartItem = (cartItem: CartItem, cartTemplate: HTMLTemplateElement)=>
     clone.querySelector("[data-cart='price']")!.textContent = `${(price * quantity).toFixed(2)} €`;
     clone.querySelector("[data-cart='quantity']")!.textContent = `${quantity}`; 
 
+    clone.querySelector("[data-cart='increment']")!.addEventListener("click", ()=>{
+        addToCart({ title, price, id });
+    });
+
+    clone.querySelector("[data-cart='decrement']")!.addEventListener("click", ()=>{
+        removeFromCart(id); 
+    });
 
     return clone; 
 
