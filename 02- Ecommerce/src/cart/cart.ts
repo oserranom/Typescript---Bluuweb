@@ -28,7 +28,12 @@ export const addToCart = ({title, id, price}: ItemAddedToCart) =>{
 //3. Crear un método para eliminar del carrito
 export const removeFromCart = (id: number) => {
     const itemIndex = cartArray.findIndex((cartItem) => cartItem.id === id);
-    cartArray.splice(itemIndex, 1);
+    if(cartArray[itemIndex].quantity > 1){
+        cartArray[itemIndex].quantity --;
+    }else{
+        cartArray.splice(itemIndex, 1);
+    }
+
     localStorage.setItem("cart", JSON.stringify(cartArray)); 
     renderCartList();
 }
