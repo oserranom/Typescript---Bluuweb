@@ -40,4 +40,4 @@ export const removeFromCart = (id: number) => {
 
 
 //4. Crear un método para obtener el total del carrito
-export const getTotal = cartArray.reduce((ac, item) => ac + item.price * item.quantity, 0); 
+export const getTotal = () => cartArray.reduce((ac, item) => ac + item.price * item.quantity, 0); 

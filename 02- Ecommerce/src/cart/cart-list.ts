@@ -1,9 +1,11 @@
 import type { CartItem } from "../interfaces/cartItem.inteface";
-import { addToCart, cartArray, removeFromCart } from "./cart";
+import { addToCart, cartArray, getTotal, removeFromCart } from "./cart";
 //5. Crear un método para vaciar carrito
 
 const cartList = document.querySelector("#cart-list") as HTMLUListElement;
 const cartTemplate = document.querySelector("#cart-template") as HTMLTemplateElement; 
+
+const cartTotal = document.querySelector("[data-cart='total']") as HTMLSpanElement;
 
 export const renderCartList = async ()=>{
     cartList.textContent = ""; 
@@ -12,6 +14,8 @@ export const renderCartList = async ()=>{
         const clone = createCartItem(cartItem, cartTemplate);
         cartList.appendChild(clone);
     });
+
+    cartTotal.textContent = `${getTotal().toFixed(2)} €`; 
 }
 
 const createCartItem = (cartItem: CartItem, cartTemplate: HTMLTemplateElement)=>{
