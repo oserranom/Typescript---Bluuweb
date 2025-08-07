@@ -8,14 +8,22 @@ const cartTemplate = document.querySelector("#cart-template") as HTMLTemplateEle
 const cartTotal = document.querySelector("[data-cart='total']") as HTMLSpanElement;
 
 export const renderCartList = async ()=>{
+    //Vacíar HTML
     cartList.textContent = ""; 
     
+    //Iterar en el array de productos para renderizar un clone por cada uno
     cartArray.forEach((cartItem) => {
         const clone = createCartItem(cartItem, cartTemplate);
         cartList.appendChild(clone);
     });
 
-    cartTotal.textContent = `${getTotal().toFixed(2)} €`; 
+    //En el caso de carrito vacío: mensaje
+    if(cartArray.length === 0){
+        cartTotal.textContent = "Cart is empty"
+    }else{
+        cartTotal.textContent = `${getTotal().toFixed(2)} €`; 
+    }
+    
 }
 
 const createCartItem = (cartItem: CartItem, cartTemplate: HTMLTemplateElement)=>{
