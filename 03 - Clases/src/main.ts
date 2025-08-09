@@ -22,6 +22,10 @@ class Pet {
   public getMessage():string {
     return `La mascota ${this.name} tiene ${this.age} años`; 
   }
+
+  static getInstance(): string{
+    return `I'm static method with no instance call me with Pet.getInstance()`; 
+  }
   
 }
 
@@ -59,3 +63,12 @@ console.log(myDog);
 
 console.log("POLIMORFISMO: ");
 console.log(myDog.getMessage()); 
+
+//Abstract class:
+//Es como una plantilla de clase, no se puede instanciar directamente.
+//Sirve como base para otras clases que sí puedan ser instanciadas. 
+
+//Static method:
+//Son métodos definidos dentro de una clase pero que no necesitan una instancia de clase para ser llamados, ej:
+console.log("STATIC METHOD: ")
+console.log(Pet.getInstance());
