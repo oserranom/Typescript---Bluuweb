@@ -11,11 +11,18 @@ const pet = {
 //Inferencia directa no necesita tipar pero sí requiere valor por default 
 //Se puede evitar valor por default con el assertion operator (!) pero no recomendable 
 
+interface IPet {
+  name: string;
+  age: number;
+  getMessage(): string; 
+}
+//IMPLEMENTS, se utiliza para decir a una clase como debe estar formada como mínimo aportando una interface 
+
 //Las propiedades pueden ser (ahora) public (por default), private, protected y readonly 
-class Pet {
+class Pet implements IPet {
 
   //Sintáxis breve (typescript) para constructores 
-  constructor(private name: string, private age: number){}
+  constructor(public name: string, public age: number){}
 
 
   //Accede con los get no accede a la propiedad directamente 
@@ -72,3 +79,4 @@ console.log(myDog.getMessage());
 //Son métodos definidos dentro de una clase pero que no necesitan una instancia de clase para ser llamados, ej:
 console.log("STATIC METHOD: ")
 console.log(Pet.getInstance());
+
