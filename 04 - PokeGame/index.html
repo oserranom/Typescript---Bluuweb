@@ -7,7 +7,46 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div id="app"></div>
+
+    <div id="app">
+
+      <div class="container">
+        <div class="game-div">
+          <article class="game-article">
+
+            <section class="header">
+              <h2>¿Quien es este Pokémon?</h2>
+              <p>Puntuación: <span class="score"></span></p>
+            </section>
+
+            <section class="card-body">
+              <div class="" id="pokemon-container">
+                <span class="cargando">Cargando...</span>
+              </div>
+              <form id="form">
+                <div>
+                  <input type="text" id="guess-input" class="" placeholder="¿Como se llama este Pokémon?">
+                </div>
+
+                <div>
+                  <button class="btn" id="submit-guess">Adivinar</button>
+                  <button class="btn" id="next-pokemon">Siguiente Pokémon</button>
+                </div>
+
+                <div>
+
+                </div>
+
+              </form>
+            </section>
+
+            
+          </article>
+        </div>
+      </div>
+
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

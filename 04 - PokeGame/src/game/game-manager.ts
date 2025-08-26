@@ -1,5 +1,6 @@
 import type { Pokemon } from "../models/pokemon.model";
 import { PokemonService } from "../services/pokemon.service";
+import confetti from "canvas-confetti"; 
 
 export enum GameState {
     LOADING = "loading",
@@ -63,6 +64,29 @@ export class GameManager {
 
     private celebrateCorrectAnswer(){
         console.log("YEAH"); 
+
+        //Celebración con confeti chupi-way
+
+        //Desde abajo
+        confetti({
+            particleCount: 100,
+            spread: 60,
+            origin: { x:0 }
+        });
+
+        //Desde los lados
+        confetti({
+            particleCount: 50,
+            angle: 60,
+            spread: 55,
+            origin: { x:0 }
+        });
+        confetti({
+            particleCount: 50,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        }); 
     }
 
     public async nextPokemon(){
