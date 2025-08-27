@@ -2,18 +2,31 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }
 
+.text-white{
+  color: white; 
+}
+
+.header{
+  background-color: rgb(42, 41, 49);
+  padding: 12px;
+  overflow: hidden;
+}
+
 .container{
   margin-top: 50px;
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 10px;
 }
 
 .game-article{
   border-radius: 8px;
-  padding: 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.card-body{
+  padding: 16px;
 }
 
 .pokemon-container{
@@ -31,9 +44,8 @@
 }
 
 .name{
-  display: block;
   min-width: 95%; 
-  padding: 5px;
+  padding: 8px 5px;
   border-radius: 8px;
   border: 1px solid gray;
   text-align: center;
@@ -41,10 +53,27 @@
 }
 
 .btn{
-  display: block;
-  margin: 10px auto; 
+  margin: 5px auto; 
   min-width: 100%; 
-  padding: 5px; 
+  padding: 10px 0; 
   border-radius: 8px; 
   border: none; 
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.blue-btn{
+  background-color: rgb(19, 87, 235);
+
+  &:hover{
+    background-color: rgb(62, 117, 235);
+  }
+}
+
+.gray-btn{
+  background-color: rgb(109, 109, 109);
+
+  &:hover{
+    background-color: rgb(207, 206, 206);
+  }
 }
