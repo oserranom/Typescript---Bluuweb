@@ -33,9 +33,9 @@
   padding: 25px;
 }
 
-.display-none{
+/* .display-none{
   display: none;
-}
+} */
 
 .cargando{
   color: gray;
@@ -82,6 +82,12 @@
   }
 }
 
+.pokemon-image-container{
+  width: 250px;
+  height: 100px;
+  margin: 0 auto; 
+}
+
 /*Silueta de la imagen sombreada, OJO como conseguirla*/
 
 .pokemon-silhuette{
@@ -92,6 +98,6 @@
 }
 
 .pokemon-image{
-  max-width: 200px;
+  max-width: 250px;
   height: auto;
 }

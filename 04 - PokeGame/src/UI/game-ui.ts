@@ -58,12 +58,13 @@ export class GameUI{
             this.pokemonContainer.classList.remove("display-none"); 
         }else if(pokemon){
             const isRevealed = gameState === GameState.CORRECT || gameState === GameState.WRONG
-
+            console.log(pokemon.imageURL); 
             this.pokemonContainer.innerHTML = `
                 <div class="pokemon-image-container">
                     <img src="${pokemon.imageURL}"
                         alt="Pokemon misterioso"
                         class="pokemon-image ${isRevealed ? "" : "pokemon-silhuette"}"
+                    />
                 </div>
             `
         }
@@ -95,7 +96,7 @@ export class GameUI{
                 this.feedbackElement.innerHTML = `
                     <div class="alert-success">
                         <h4> CORRECTO! </h4>
-                        <p>Es <strong>${pokemon}</strong></p>
+                        <p>Es <strong>${pokemon?.name}</strong></p>
                     </div>
                 `
             break;
@@ -104,7 +105,7 @@ export class GameUI{
                 this.feedbackElement.innerHTML = `
                     <div class="alert-danger">
                         <h4> INCORRECTO </h4>
-                        <p>Era <strong>${pokemon}</strong></p>
+                        <p>Era <strong>${pokemon?.name}</strong></p>
                     </div>
                 `
             break;
