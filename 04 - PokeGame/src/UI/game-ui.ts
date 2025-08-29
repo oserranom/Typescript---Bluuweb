@@ -1,4 +1,4 @@
-import {GameManager} from "../game/game-manager"
+import {GameManager, GameState} from "../game/game-manager"
 
 export class GameUI{
     private guessInput!:HTMLInputElement;
@@ -47,12 +47,85 @@ export class GameUI{
         this.guessInput.value = ""; 
     }
 
-    public updateUI(){}
+    public updateUI(){
+        const pokemon = this.gameManager.currentPokemon;
+        const gameState = this.gameManager.gameState;
 
-    private async handleNextPokemon(){}
+        //Actualizar la puntuación
+        this.score.textContent = this.gameManager.score.toString(); 
+
+        if(gameState === GameState.LOADING){
+            this.pokemonContainer.classList.remove("display-none"); 
+        }else if(pokemon){
+            const isRevealed = gameState === GameState.CORRECT || gameState === GameState.WRONG
+
+            this.pokemonContainer.innerHTML = `
+                <div class="pokemon-image-container">
+                    <img src="${pokemon.imageURL}"
+                        alt="Pokemon misterioso"
+                        class="pokemon-image ${isRevealed ? "" : "pokemon-silhuette"}"
+                </div>
+            `
+        }
+
+        this.updateControls(gameState);
+        this.updateFeedback(gameState); 
+    }
+
+    private updateControls(gameState: GameState){
+        switch(gameState){
+            case GameState.PLAYING:
+                this.guessInput.disabled = false;
+                this.guessButton.disabled = false; 
+                this.nextButton.classList.add("display-none");
+                break;
+            case GameState.CORRECT:
+            case GameState.WRONG:
+                this.guessInput.disabled = true;
+                this.guessButton.disabled = true;
+                this.nextButton.classList.remove("display-none"); 
+        }
+    }
+
+    private updateFeedback(gameState: GameState){
+        const pokemon = this.gameManager.currentPokemon;
+
+        switch(gameState){
+            case GameState.CORRECT:
+                this.feedbackElement.innerHTML = `
+                    <div class="alert-success">
+                        <h4> CORRECTO! </h4>
+                        <p>Es <strong>${pokemon}</strong></p>
+                    </div>
+                `
+            break;
+
+            case GameState.WRONG:
+                this.feedbackElement.innerHTML = `
+                    <div class="alert-danger">
+                        <h4> INCORRECTO </h4>
+                        <p>Era <strong>${pokemon}</strong></p>
+                    </div>
+                `
+            break;
+
+            default:
+                this.feedbackElement.innerHTML = ""; 
+        }
+    }
+
+    private async handleNextPokemon(){
+        try {
+            await this.gameManager.nextPokemon();
+            this.updateUI();
+            this.guessInput.focus();
+        } catch (error) {
+            this.showFeedback("Error al cargar el siguiente POkemon", "danger");
+        }
+    }
 
     private showFeedback(message: string, type: string){
-        this.feedbackElement.innerHTML`
+        this.feedbackElement.innerHTML  = `
             <div class="alert alert-${type}">
                 ${message}
             </div>

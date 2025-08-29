@@ -33,6 +33,10 @@
   padding: 25px;
 }
 
+.display-none{
+  display: none;
+}
+
 .cargando{
   color: gray;
 }
@@ -76,4 +80,18 @@
   &:hover{
     background-color: rgb(207, 206, 206);
   }
+}
+
+/*Silueta de la imagen sombreada, OJO como conseguirla*/
+
+.pokemon-silhuette{
+  filter: brightness(0) saturate(0) contrast(1000%);
+  -webkit-filter: brightness(0) saturate(0) contrast(1000%);
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.pokemon-image{
+  max-width: 200px;
+  height: auto;
 }
