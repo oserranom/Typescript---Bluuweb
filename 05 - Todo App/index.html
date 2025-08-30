@@ -10,7 +10,30 @@
     <div id="app" class="container">
       <main class="main">
         <h1 class="text-secondary">Todo App</h1>
-        <div class="todo-box"> APP </div>
+
+        <div class="todo-box"> 
+          <article class="card">
+            <div class="card-body">
+
+              <!-- Formulario -->
+              <form id="todo-form">
+                <div class="row">
+                  <input type="text" id="todo-input" placeholder="Añade una tarea" class="todo-input">
+                  <button type="submit" class="button add-button">Añadir</button>
+                </div>
+              </form>
+
+              <!-- Lista tareas -->
+              <ul class="list-group">
+                <li class="list-item">Item 1</li>
+                <li class="list-item">Item 2</li>
+                <li class="list-item">Item 3</li>
+              </ul>
+
+            </div>
+          </article>
+        </div>
+
       </main>
     </div>
     <script type="module" src="/src/main.ts"></script>
