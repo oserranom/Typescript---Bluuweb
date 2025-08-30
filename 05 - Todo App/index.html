@@ -24,10 +24,17 @@
               </form>
 
               <!-- Lista tareas -->
-              <ul class="list-group">
-                <li class="list-item">Item 1</li>
-                <li class="list-item">Item 2</li>
-                <li class="list-item">Item 3</li>
+              <ul class="list-group" id="todo-list">
+                
+                <template id="todo-item-template">
+                  <li class="list-item">
+                    <div class="item-container">
+                      <span></span>
+                      <button></button>
+                    </div>
+                  </li>
+                </template>
+                
               </ul>
 
             </div>
