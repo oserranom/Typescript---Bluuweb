@@ -28,6 +28,24 @@ const getTodos = (): Todo[] =>{
     return [...todos]; 
 }
 
-export const todoService = {
+const addTodo = (todo: Todo): void =>{
+    if(!todo || !todo.description.trim()){
+        throw new Error("Todo description is requried");
+    }
 
+    const newTodo: Todo = {
+        id: crypto.randomUUID(),
+        description: todo.description.trim(),
+        done: false
+    } 
+
+    todos.push(newTodo);
+    saveTodos(todos); 
+}
+
+export const todoService = {
+    getTodos,
+    saveTodos,
+    loadTodos,
+    addTodo
 }
