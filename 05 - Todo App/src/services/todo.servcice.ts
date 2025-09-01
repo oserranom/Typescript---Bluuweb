@@ -32,14 +32,14 @@ const getTodos = (): Todo[] =>{
     return [...todos]; 
 }
 
-const addTodo = (todo: Todo): void =>{
-    if(!todo || !todo.description.trim()){
+const addTodo = (description: string): void =>{
+    if(!description || !description.trim()){
         throw new Error("Todo description is requried");
     }
 
     const newTodo: Todo = {
         id: crypto.randomUUID(),
-        description: todo.description.trim(),
+        description: description.trim(),
         done: false
     } 
 
