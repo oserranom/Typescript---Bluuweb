@@ -161,3 +161,7 @@ button:focus-visible {
 .list-item:last-child {
   border-bottom: none;
 }
+
+.done{
+  text-decoration: line-through;
+}
