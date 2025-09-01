@@ -7,6 +7,10 @@ export interface Todo{
 
 let todos: Todo[] = []; 
 
+const initTodos = ()=>{
+    loadTodos(); 
+}
+
 //Obtener lista de localStorage
 const loadTodos = () =>{
     const todosJSON =  localStorage.getItem('todos');
@@ -43,9 +47,28 @@ const addTodo = (todo: Todo): void =>{
     saveTodos(todos); 
 }
 
+//Actualizar toggle todo
+const toggleTodo = (id: string) =>{
+    todos = todos.map((todo) =>{
+        if(todo.id === id){
+            return { ...todo, done: !todo.done}
+        }
+        return todo;
+    }); 
+
+    saveTodos(todos);
+}
+
+//Eliminar un todo
+const deleteTodo = (id: string) =>{
+    todos = todos.filter((todo) =>todo.id !== id);
+    saveTodos(todos); 
+}
+
 export const todoService = {
     getTodos,
-    saveTodos,
-    loadTodos,
-    addTodo
+    addTodo,
+    toggleTodo,
+    deleteTodo,
+    initTodos
 }
