@@ -137,11 +137,24 @@ button:focus-visible {
   border-bottom-right-radius: 6px;
 }
 
-.add-button{
+.delete-button{
+  margin: 10px; 
+  font-weight: 300;
+  border-radius: 4px;
+  padding: 4px 10px;
   background-color: rgb(228, 73, 73);
+  border: none;
 
   &:hover{
     background-color: lightcoral;
+  }
+}
+
+.add-button{
+  background-color: rgb(2, 211, 89);
+
+  &:hover{
+    background-color: lightgreen;
   }
 }
 
@@ -150,12 +163,22 @@ button:focus-visible {
   margin-top: 40px;
   padding: 0;
   border-radius: 8px;
+  border: 1px solid whitesmoke;
 }
 
 .list-item{
   min-width: 100%;
   border-bottom: 1px solid whitesmoke;
-  padding: 10px 0;
+  padding: 5px 0;
+}
+
+.item-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+  padding: 0 5px;
+  cursor: pointer;
 }
 
 .list-item:last-child {

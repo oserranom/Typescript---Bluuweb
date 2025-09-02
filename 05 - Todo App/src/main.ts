@@ -37,5 +37,28 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.log("Error todo: ", error); 
         }
     }); 
+
+
+    //Delegación de eventos
+    todoList.addEventListener("click", e =>{
+        const target = e.target as HTMLElement;
+        const todoItem = target.closest("li[data-id]");
+
+        if(!todoItem) return;
+
+        const todoId = todoItem.getAttribute("data-id");
+        if(!todoId) return; 
+
+        //Detectar si se hizo click en el botón
+        if(target.tagName === "BUTTON"){
+            todoService.deleteTodo(todoId);
+            displayTodos();
+            return; 
+        }
+
+        todoService.toggleTodo(todoId);
+        displayTodos(); 
+        
+    }); 
     
 });
